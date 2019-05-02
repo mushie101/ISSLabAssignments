@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question 2</title>
+	<style type="text/css">
+		#drpdwn-content
+		{
+			list-style-type: none;
+			padding: 5px;
+			padding-top: 0px;
+			margin-top: 0px;
+			display: none;
+		}
+		#drpdwn-content ul
+		{
+			max-height: 300px;
+			overflow: scroll;
+		}
+		#drpdwn-content li
+		{
+			cursor: pointer;
+			border: 2px solid black;
+			border-collapse: collapse;
+			padding: 5px;
+		}
+		#drop
+		{
+			cursor: pointer;
+			padding-bottom: 0px;
+			margin-bottom: 0px;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<span id="drpdwn">
+	<button id="drop">Dropdown</button><br>
+		<table id="drpdwn-content">
+		</table>
+	</span>
+	<span id="restaurants">
+		Hello
+	</span>
+
+</body>
+<scipt src="./jquery-3.3.1.js"></scipt>
+<script type="text/javascript">
+	
+	var xmlhttp = new XMLHttpRequest();
+	var cuisines = new Set();
+	var obj = 0;
+	xmlhttp.onreadystatechange = function() {
+	  if (this.readyState == 4 && this.status == 200) {
+	    obj = JSON.parse(this.responseText);
+	    console.log(obj[0]);
+	    //console.log(obj[1]);
+	    for (key in obj)
+	    	cuisines.add(obj[key]["cuisine"]);
+	  }
+	};
+	xmlhttp.open("GET", "https://api.myjson.com/bins/x4nji", true);
+	xmlhttp.send();
+
+	$("#drpdwn").css("padding", "5px");
+
+	/*var obj = JSON.parse(restaurants.json)*/
+	$(document).ready(function () {
+		setTimeout(
+		  function() 
+		  {
+		  	console.log(cuisines)
+			document.getElementById("drpdwn-content").innerHTML += "<ul>"
+			for (let i of cuisines)
+			{
+				document.getElementById("drpdwn-content").innerHTML += "<li onclick='display(" + i + ")'>" + i + "</li>"
+			}
+			document.getElementById("drpdwn-content").innerHTML += "</ul>"
+
+			$("#drop").click(function() {
+				$("#drpdwn-content").css("display", "table");
+			});
+		  }, 1500);
+
+		/*function display (x)
+		{
+			for (var i in obj)
+			{
+				if (i["cuisine"] == x)
+			}
+		}*/
+	});
+
+
+</script>
+</html>

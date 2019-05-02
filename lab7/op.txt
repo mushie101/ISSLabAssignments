@@ -1,0 +1,11 @@
+The: 2
+quick: 1
+brown: 1
+fox: 1
+jumped: 1
+over: 1
+lazy: 1
+dog: 1
+Hello: 1
+its: 1
+me: 1

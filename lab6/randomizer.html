@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<title>Randomizer</title>
+</head>
+<body>
+	<button id="reset">Reset</button>
+	<p id="p1">
+		This is paragraph 1
+		<br><br>
+	</p>
+	<p id="p2">
+		This is paragraph 2
+		<br><br>
+	</p>
+	<p id="p3">
+		This is paragraph 3
+		<br><br>
+	</p>
+	<p id="p4">
+		This is paragraph 4
+		<br><br>
+	</p>
+	<div id="imgbox">
+		<img src="https://images.unsplash.com/photo-1522012915511-fdab9ce1dbc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" width="700" height="500">
+	</div>
+
+	<script type="text/javascript">
+		
+		$("#reset").click(function () {
+			$("#p1").css("display", "block");
+			$("#p2").css("display", "block");
+			$("#p3").css("display", "block");
+			$("#p4").css("display", "block");
+			$("#p1").css("font-weight", "normal");
+			$("#p2").css("font-weight", "normal");
+			$("#p3").css("font-weight", "normal");
+			$("#p4").css("font-weight", "normal");
+		});
+
+		var fl1 = 1, fl2 = 1, fl3 = 1, fl4 = 1;
+		$("#p1").click(function () {
+			if (fl1 == 0)
+				$("#p1").css("display", "none");
+		});
+		$("#p2").click(function () {
+			if (fl2 == 0)
+				$("#p2").css("display", "none");
+		});
+		$("#p3").click(function () {
+			if (fl3 == 0)
+				$("#p3").css("display", "none");
+		});
+		$("#p4").click(function () {
+			if (fl4 == 0)
+				$("#p4").css("display", "none");
+		});
+
+		$("#p1").dblclick(function () {
+			fl1 = 1;
+			$("#p1").css("font-weight", "bold");
+			fl1 = 0;
+		});
+		$("#p2").dblclick(function () {
+			fl2 = 1;
+			$("#p2").css("font-weight", "bold");
+			fl2 = 0;
+		});
+		$("#p3").dblclick(function () {
+			fl3 = 1;
+			$("#p3").css("font-weight", "bold");
+			fl3 = 0;
+		});
+		$("#p4").dblclick(function () {
+			fl4 = 1;
+			$("#p4").css("font-weight", "bold");
+			fl4 = 0;
+		});
+		
+		$("#imgbox img").css("opacity", "0");
+		$("#imgbox img").css("transition", "opacity 1s ease");
+
+		$( document ).ready(function() {
+    		console.log( "ready!" );
+			$("#imgbox img").css("opacity", "1");
+		});
+
+	</script>
+</body>
+</html>

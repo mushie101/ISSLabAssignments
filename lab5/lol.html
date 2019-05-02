@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Ll</title>
+</head>
+<body>
+<p id="demo" onclick="myFunction('Lmao')">Click me to change my text color.</p>
+
+<script>
+function myFunction(lol) {
+	console.log(lol);
+    document.getElementById("demo").style.color = "red";
+    document.getElementById("demo").innerHTML += "<p style=\"color:blue;\">" + lol + "</p>";
+}
+</script>
+</body>
+</html>

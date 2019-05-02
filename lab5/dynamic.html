@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dropdown Button</title>
+	<style>
+		#lol
+		{
+			position: absolute;
+		}
+		table
+		{
+			border-collapse: collapse;
+		}
+		table, th, td 
+		{
+			text-align: center;
+			font-size: 20px;
+			border: 2px solid black;
+			color: black;
+		}
+		th, td
+		{
+			padding: 5px;
+			padding-right: 105px;
+			padding-left: 105px;
+		}
+		tr:hover
+		{
+			background-color: green;
+			color: yellow;
+		}
+		.dropdown
+		{
+			position: relative;
+			display: inline-block;
+		}
+		.dropdown-button
+		{
+			display: block;
+		}
+		.dropdown-content
+		{
+			display: none;
+			color: grey;
+			max-height: 500px;
+			overflow: scroll;
+			/*position: absolute;
+			z-index: 1;*/
+		}
+		.dropdown:hover .dropdown-content
+		{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<table id="lmao">
+		<tr style="font-weight: bold;">
+			<td>Name</td>
+			<td>marks1</td>
+			<td>marks2</td>
+			<td>marks3</td>
+			<td>marks4</td>
+			<td>marks5</td>
+		</tr>
+	</table>
+	<br><br>
+	<div class="dropdown">
+		<button class="dropdown-button"> Names </button>
+		<div class="dropdown-content">
+			<table id="dropdown-table">
+			</table>
+		</div>
+	</div>
+	
+	<script src="data.js"></script>
+	<script>
+		var tab = document.getElementById("dropdown-table");
+		var mark = document.getElementById("lmao");
+		for (name in file)
+		{
+			tab.innerHTML += "<tr><td><a id=" + name + " onclick=\"showDiv('" + name + "')\">" + name + "</a></td></tr>";	
+		}
+		for (name in file)
+		{
+			/*mark.innerHTML += "<tr id=\"" + name + "\" style=\"display:none\"><td>" + name + "</td><td>" + file[name][0] + "</td><td>" + file[name][1] + "</td><td>" + file[name][2] + "</td><td>" + file[name][3] + "</td><td>" + file[name][4] + "</td></tr>";*/
+
+		// 	mark.innerHTML += "<tr id=\"" + name + "\" style=\"display:none\">";
+		 	var max = 4, min = 0;
+		 	for (var i = 0; i < 5; i++)
+		 	{
+		 		if (file[name][i] >= file[name][max])
+		 			max = i;
+		 		if (file[name][i] < file[name][min])
+		 			min = i;
+		 	}
+		}
+
+		function showDiv(ans)
+		{
+			var lol = document.getElementById("lmao");
+			console.log(ans);
+			console.log("document.getElementById(" + ans + ").style.display = \"table\";");
+			document.getElementById(ans).style.display = "table-row";
+			lol.innerHTML = "<tr style=\"font-weight: bold;\"><td>Name</td><td>marks1</td><td>marks2</td><td>marks3</td><td>marks4</td><td>marks5</td></tr>" +
+		"<tr><td>" + ans + "</td><td>" + file[ans][0] + "</td><td>" + file[ans][1] + "	</td><td>" + file[ans][2] + "</td><td>" + file[ans][3] + "</td><td>" + file[ans][4] + "</td></tr>";
+
+		}
+
+	</script>
+</body>
+</html>

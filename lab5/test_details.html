@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Test Details </title>
+</head>
+<style>
+	table
+	{
+		border-collapse: collapse;
+	}
+	table, th, td 
+	{
+		text-align: center;
+		font-size: 25px;
+		border: 2px solid black;
+	}
+	th, td
+	{
+		padding: 5px;
+		padding-right: 105px;
+		padding-left: 105px;
+	}
+	tr:hover
+	{
+		background-color: green;
+		color: yellow;
+	}
+</style>
+<script src="data.js"></script>
+<body>
+	<h1>Student Sheet</h1>
+	<table id="lol">
+		<tr>
+			<th>Name</th>
+			<th>marks1</th>
+			<th>marks2</th>
+			<th>marks3</th>
+			<th>marks4</th>
+			<th>marks5</th>
+		</tr>
+	</table>
+
+	<script>
+		var tab = document.getElementsByTagName("table")[0];
+		for (name in file){
+			tab.innerHTML += "<tr><td>" + name + "</td><td>" + file[name][0] + "</td><td>" + file[name][1] + "</td><td>" + file[name][2] + "</td><td>" + file[name][3] + "</td><td>" + file[name][4] + "</td></tr>";
+		}
+		
+	</script>
+
+</body>
+</html>
